@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="14538" started-at="2020-05-04T23:25:59 IST" finished-at="2020-05-04T23:26:13 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="14538" started-at="2020-05-04T23:25:59 IST" finished-at="2020-05-04T23:26:13 IST">
+      <class name="test.lakshmi.testcase1">
+        <test-method status="PASS" signature="initailize()[pri:0, instance:test.lakshmi.testcase1@e720b71]" name="initailize" is-config="true" duration-ms="11927" started-at="2020-05-04T23:25:59 IST" finished-at="2020-05-04T23:26:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initailize -->
+        <test-method status="PASS" signature="setUpReport()[pri:0, instance:test.lakshmi.testcase1@e720b71]" name="setUpReport" is-config="true" duration-ms="241" started-at="2020-05-04T23:26:11 IST" finished-at="2020-05-04T23:26:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpReport -->
+        <test-method status="PASS" signature="testCase1()[pri:0, instance:test.lakshmi.testcase1@e720b71]" name="testCase1" duration-ms="407" started-at="2020-05-04T23:26:11 IST" finished-at="2020-05-04T23:26:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCase1 -->
+        <test-method status="PASS" signature="checkResult(org.testng.ITestResult)[pri:0, instance:test.lakshmi.testcase1@e720b71]" name="checkResult" is-config="true" duration-ms="1102" started-at="2020-05-04T23:26:11 IST" finished-at="2020-05-04T23:26:13 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testCase1 status=SUCCESS method=testcase1.testCase1()[pri:0, instance:test.lakshmi.testcase1@e720b71] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResult -->
+        <test-method status="PASS" signature="end()[pri:0, instance:test.lakshmi.testcase1@e720b71]" name="end" is-config="true" duration-ms="794" started-at="2020-05-04T23:26:13 IST" finished-at="2020-05-04T23:26:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- end -->
+      </class> <!-- test.lakshmi.testcase1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
