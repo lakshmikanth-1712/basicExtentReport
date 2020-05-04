@@ -50,8 +50,8 @@ public class baseClass extends extentReport{
 		if (result.getStatus() == ITestResult.FAILURE) {
 			
 			test.fail(result.getThrowable());
-            test.fail("Screenshot below: " + test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
-		
+            //test.fail("Screenshot below: " + test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
+            test.fail("Failed Screnshot", MediaEntityBuilder.createScreenCaptureFromPath(captureScreen(result.getName())).build());
 		} else if (result.getStatus() == ITestResult.SKIP) {
 			test.log(Status.SKIP, "Test Case :" +result.getThrowable()+ " is SKIPPED");
 			test.skip("Screenshot below: " + test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
@@ -71,7 +71,7 @@ public class baseClass extends extentReport{
 		Date d = new Date();
 		//String dest="/Users/luckyshiney/git/TestExtentReport/test/Screenshots"+getcurrentdateandtime()+".png";
 		//specify the screenshot path correctly else u will not get SS in report(only absolute path work not relative path)
-		String dest= System.getProperty("user.dir") +"/Screenshots/" + d.toString().replace(":", "_").replace(" ", "_")+ methodName+".png";
+		String dest= System.getProperty("user.dir") +"/Screenshots/" + d.toString().replace(":", "_").replace(" ", "_")+":" +methodName+".png";
 		File target=new File(dest);
 		FileHandler.copy(src, target);
 		return dest;

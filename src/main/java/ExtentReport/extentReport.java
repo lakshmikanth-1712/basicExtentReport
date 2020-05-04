@@ -43,7 +43,7 @@ public class extentReport {
 	public void  setUpReport() {
 
 		//htmlReporter = new ExtentHtmlReporter("/Users/luckyshiney/git/AppiumPractice/IOS/Reports/extent.html");
-		htmlReporter = new ExtentHtmlReporter("./Reports/extent.html");
+		htmlReporter = new ExtentHtmlReporter("./Reports/simpleExtentReportProj.html");
 		htmlReporter.config().setDocumentTitle("ExtentReports - Mobile Appium");
 		htmlReporter.config().setReportName("ExtentReports - Lakshmikanth");
 		htmlReporter.config().setTheme(Theme.DARK);
