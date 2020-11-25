@@ -25,14 +25,14 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class baseClass extends extentReport{
-	
+public class baseClass extends extentReport {
+
 	public static AppiumDriver<AndroidElement> driver;
 	public static DesiredCapabilities caps = new DesiredCapabilities();
-	
+
 	@BeforeTest
 	public static void initailize() throws MalformedURLException {
-		
+
 		caps.setCapability("deviceName", "vivo18");
 		caps.setCapability("platformName", "Android");
 		caps.setCapability(CapabilityType.APPLICATION_NAME, "amazon");
@@ -42,40 +42,46 @@ public class baseClass extends extentReport{
 		caps.setCapability("appActivity", "com.amazon.mShop.android.home.HomeActivity");
 		driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 	}
-	
+
 	@AfterMethod
 	public void checkResult(ITestResult result) throws IOException {
-		
-	
+
 		if (result.getStatus() == ITestResult.FAILURE) {
-			
+
 			test.fail(result.getThrowable());
-            //test.fail("Screenshot below: " + test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
-            test.fail("Failed Screnshot", MediaEntityBuilder.createScreenCaptureFromPath(captureScreen(result.getName())).build());
+			// test.fail("Screenshot below: " +
+			// test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
+			test.fail("Failed Screnshot",
+					MediaEntityBuilder.createScreenCaptureFromPath(captureScreen(result.getName())).build());
 		} else if (result.getStatus() == ITestResult.SKIP) {
-			test.log(Status.SKIP, "Test Case :" +result.getThrowable()+ " is SKIPPED");
-			test.skip("Screenshot below: " + test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
+			test.log(Status.SKIP, "Test Case :" + result.getThrowable() + " is SKIPPED");
+			test.skip("Screenshot below: "
+					+ test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
-			test.log(Status.PASS, "Test Case :" +result.getName() +" is PASSED ");
-			//test.pass("Screenshot below: " + test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
-			test.pass("Passed Screnshot", MediaEntityBuilder.createScreenCaptureFromPath(captureScreen(result.getName())).build());
+			test.log(Status.PASS, "Test Case :" + result.getName() + " is PASSED ");
+			// test.pass("Screenshot below: " +
+			// test.addScreenCaptureFromPath(captureScreen(result.getMethod().getMethodName())));
+			test.pass("Passed Screnshot",
+					MediaEntityBuilder.createScreenCaptureFromPath(captureScreen(result.getName())).build());
 		}
 	}
-	
-	
-	public String captureScreen(String methodName) throws IOException
-	{
-		TakesScreenshot screen=(TakesScreenshot)driver;
-		File src=screen.getScreenshotAs(OutputType.FILE);
-		
+
+	public String captureScreen(String methodName) throws IOException {
+		TakesScreenshot screen = (TakesScreenshot) driver;
+		File src = screen.getScreenshotAs(OutputType.FILE);
+
 		Date d = new Date();
-		//String dest="/Users/luckyshiney/git/TestExtentReport/test/Screenshots"+getcurrentdateandtime()+".png";
-		//specify the screenshot path correctly else u will not get SS in report(only absolute path work not relative path)
-		String dest= System.getProperty("user.dir") +"/Screenshots/" + d.toString().replace(":", "_").replace(" ", "_")+":" +methodName+".png";
-		File target=new File(dest);
+		// String
+		// dest="/Users/luckyshiney/git/TestExtentReport/test/Screenshots"+getcurrentdateandtime()+".png";
+		// specify the screenshot path correctly else u will not get SS in report(only
+		// absolute path work not relative path)
+		String dest = System.getProperty("user.dir") + "/Screenshots/"
+				+ d.toString().replace(":", "_").replace(" ", "_") + ":" + methodName + ".png";
+		File target = new File(dest);
 		FileHandler.copy(src, target);
 		return dest;
-	}	
+	}
+
 	@AfterTest
 	public void end() {
 		extent.flush();
