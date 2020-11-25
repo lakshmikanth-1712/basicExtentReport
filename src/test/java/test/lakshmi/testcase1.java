@@ -10,6 +10,10 @@ import com.aventstack.extentreports.Status;
 
 public class testcase1 extends baseClass{
 	
+	static WebDriver driver;
+    private static ExtentReports extent;
+    static URI report;
+	
 	@Test
 	public void testCase1() throws InterruptedException {
 		
